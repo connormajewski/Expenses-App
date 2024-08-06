@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, inital-scale=1">
+    <title>Spending</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+
+<body>
+  <div id="navbar">
+    <div id="menu-icon" onclick="menuChange(this)">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+    <div id="add-icon"><a href="/add">+</a></div>
+  </div>
+
+  <div id="menu-drop">
+    <ul id="dropdown-list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/add">Add Transaction</a></li>
+        <li><a href="/list">Transaction List</a></li>
+    </ul>
+  </div>

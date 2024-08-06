@@ -1,0 +1,79 @@
+{% include 'spendingsite/header.html' %}
+
+<form id="transaction" method="post" onsubmit="formValidation()">
+
+    {% csrf_token %}
+
+    <div id="transaction-form">
+
+            <select class="date" id="month" name="month">
+                {% for month in months %}
+
+                    {% if month == curMonth %}
+
+                        <option selected>{{ month }}</option>
+
+                    {% else %}
+
+                        <option>{{ month }}</option>
+
+                    {% endif %}
+
+                {% endfor %}
+            </select>
+
+            <select class="date" id="day" name="day">
+                {% for day in days %}
+
+                    {% if day == curDay %}
+
+                        <option selected>{{ day }}</option>
+
+                    {% else %}
+
+                        <option>{{ day }}</option>
+
+                    {% endif %}
+
+                {% endfor %}
+            </select>
+
+            <select class="date" id="year" name="year">
+                {% for year in years %}
+
+                    {% if year == curYear %}
+
+                        <option selected>{{ year }}</option>
+
+                    {% else %}
+
+                        <option>{{ year }}</option>
+
+                    {% endif %}
+
+                {% endfor %}
+            </select>
+
+            <input type="text" id="description" name="description" placeholder="Description" required>
+
+            <input type="text" id="price" name="price" pattern="\d{1,4}(\.?\d{1,2}){0,1}" placeholder="Price ($0000.00)" required>
+
+            <select id="category" name="category">
+                {% for category in categories %}
+
+                <option>{{ category }}</option>
+
+                {% endfor %}
+            </select>
+
+            <input type="submit" id="submitBtn" name="submitBtn">
+
+    </div>
+
+</form>
+
+</body>
+
+{% load static %}
+<script src="{% static 'spendingsite.js' %}"></script>
+</html>

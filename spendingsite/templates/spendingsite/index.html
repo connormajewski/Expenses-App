@@ -1,0 +1,55 @@
+{% include 'spendingsite/header.html' %}
+
+<div id="transaction-form">
+
+    <div class="title" id="top-title">{{ month }} {{ day }}, {{ year }}</div>
+
+    <div class="totals">
+
+        <div class="totals-sub">
+
+            <div class="title"><b>{{ year }}</b></div>
+
+            <div class="subtitle">${{ yearlyTotal }}</div>
+
+            {% for key, values in yearlyCategoryTotals.items %}
+
+            <div class="title"><b>{{ key }}:</b></div>
+
+            <div class="title">${{ values }}</div>
+
+<!--            <div class="subtitle">${{ values }}</div>-->
+
+            {% endfor %}
+
+        </div>
+
+        <div class="totals-sub">
+
+            <div class="title"><b>{{ month }}</b></div>
+
+            <div class="subtitle">${{ monthlyTotal }}</div>
+
+            {% for key, values in monthlyCategoryTotals.items %}
+
+            <div class="title"><b>{{ key }}:</b></div>
+
+            <div class="title">${{ values }}</div>
+
+<!--            <div class="subtitle">${{ values }}</div>-->
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+</body>
+
+{% load static %}
+<script src="{% static 'spendingsite.js' %}"></script>
+</html>

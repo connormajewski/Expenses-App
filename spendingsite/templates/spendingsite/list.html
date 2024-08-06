@@ -1,0 +1,35 @@
+{% include 'spendingsite/header.html' %}
+
+<div class="transaction-list" id="vertical">
+
+    <div class="year-header">{{ year }}</div>
+
+    {% for key, values in transactions.items %}
+
+        <div class="title" id="t-list">
+
+            <div class="month-header"><b>{{ key }}</b></div>
+
+            {% for transactions in values %}
+
+                <div class="title">{{ transactions.month }}/{{ transactions.day }} ${{ transactions.price }} {{ transactions.description }}</div>
+
+            {% endfor %}
+
+<!--            <div class="t-list-inner" id="t-list-short">{{ transaction.month }}/{{ transaction.day }}</div>-->
+
+<!--            <div class="t-list-inner">${{ transaction.price }}</div>-->
+
+<!--            <div class="t-list-inner">{{ transaction.category }}</div>-->
+
+        </div>
+
+    {% endfor %}
+
+</div>
+
+</body>
+
+{% load static %}
+<script src="{% static 'spendingsite.js' %}"></script>
+</html>
